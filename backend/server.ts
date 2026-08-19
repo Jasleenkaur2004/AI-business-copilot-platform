@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import apiRoutes from "./routes/index.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
+import authRoutes from "./routes/auth.routes.js";
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", apiRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use(errorMiddleware);
 
